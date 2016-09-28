@@ -11,7 +11,7 @@ download(Url)->
 
 parse(links,Content)->
 	{match,Captured}=re:run(Content,"(?<=href=(\"|')).+?(?=(\"|'))",[global]),
-	[string:substr(Content,Start+1,Length) || [{Start, Length}]<-Captured].
+	[string:substr(Content,Start+1,Length) || [{Start, Length},_,_]<-Captured].
 
 test()->
 	parse(links,download("http://blog.gregormeyenberg.de/")).
