@@ -1,0 +1,4 @@
+{config,[]}.
+{event_handler,[]}.
+{ct_hooks,[{marla_crawl_ct_hook,[]}]}.
+{enable_builtin_hooks,undefined}.

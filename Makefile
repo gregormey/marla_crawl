@@ -3,7 +3,7 @@ PROJECT_DESCRIPTION = A web crawler to grap adresses
 PROJECT_VERSION = 0.0.1
 
 # Options.
-CT_OPTS += -pa test -ct_hooks cargo_backend_ct_hook []
+CT_OPTS += -pa test -ct_hooks marla_crawl_ct_hook []
 
 # Depandancies
 DEPS = mnesia_utile
