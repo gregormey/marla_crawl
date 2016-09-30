@@ -20,7 +20,7 @@
 -import(ct_helper, [doc/1]).
 
 all() -> 
-	[push_url].
+	[push_url, pull_url].
 
 init_per_suite(_Config) ->
 	[].
@@ -31,3 +31,11 @@ push_url(_Config)->
 	url_exists=frontier:push_url("http://blog.gregormeyenberg.de"),
 	invalid_url=frontier:push_url("jjjjo/eee"),
 	invalid_file_type=frontier:push_url("http://blog.gregormeyenberg.de/public/style.css?version=sss.html").
+
+pull_url(_Config)->
+	doc("Pulls URL twice from the queue"),
+	Url=frontier:pull_url(),
+	"http://blog.gregormeyenberg.de"=Url,
+	no_url_in_queue=frontier:pull_url().
+
+

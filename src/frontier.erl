@@ -20,6 +20,7 @@
 
 %% API functions
 -export([push_url/1]).
+-export([pull_url/0]).
 -export([start_link/0]).
 
 %% gen_server Function Exports
@@ -40,6 +41,11 @@ start_link() ->
 push_url(Url)->
 	gen_server:call(?MODULE,{push_url,Url}).
 
+%% @doc interface to pull a url from the queue
+-spec pull_url()-> string()| no_url_in_queue.
+pull_url()->
+	gen_server:call(?MODULE,{pull_url}).
+
 %% gen_server Function Definitions
 %% @private
 init(Args) ->
@@ -56,6 +62,17 @@ handle_call({push_url,Url},_From,State)->
 		ValidatorResult -> ValidatorResult
 	end,
 	State};
+
+handle_call({pull_url},_From,State)->
+	{reply,
+		case frontier_repository:get_urls_for_download() of
+			not_found -> no_url_in_queue;
+			[Url|_] -> 
+				frontier_repository:mark_url_as_pulled(Url),
+				Url
+		end,
+	 State};
+
 % @private
 handle_call(_Request, _From, State) ->
 	{reply, ok, State}.

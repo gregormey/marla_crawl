@@ -20,6 +20,8 @@
 -export([init/0]).
 -export([is_url_existent/1]).
 -export([add_url/1]).
+-export([get_urls_for_download/0]).
+-export([mark_url_as_pulled/1]).
 
 -record(url, {
 	      url = undefined :: string(),
@@ -56,3 +58,21 @@ is_url_existent(Url)->
 add_url(Url)->	
 	mnesia_utile:store(#url{url=Url}).
 
+%% @doc finds all urls in the database that can be downloaded
+-spec get_urls_for_download()-> list()| not_found.
+get_urls_for_download()->
+	case mnesia_utile:find(url, fun (R) -> 
+					(false==R#url.pulled) and (false==R#url.visited) 
+			       end)
+	of
+		not_found -> not_found;
+		Urls ->[Url || #url{url=Url}<-Urls]
+	end.
+
+%% @doc marks a url as pulled to prevent that it can be pulled again
+-spec mark_url_as_pulled(string())-> ok | not_found.
+mark_url_as_pulled(Url)->
+	case mnesia_utile:find_by_id(url,Url) of
+		not_found -> not_found;
+		UrlRecord -> mnesia_utile:store(UrlRecord#url{pulled=true})
+	end.
