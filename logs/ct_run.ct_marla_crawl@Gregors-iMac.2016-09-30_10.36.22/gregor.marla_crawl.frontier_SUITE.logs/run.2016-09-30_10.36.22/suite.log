@@ -1,0 +1,63 @@
+=== Suite started at 2016-09-30 10:36:22
+=== Starting test, 2 test cases
+=cases         2
+=user          gregor
+=host          Gregors-iMac
+=hosts         Gregors-iMac 
+=emulator_vsn  7.2.1
+=emulator      beam
+=otp_release   18
+=started       2016-09-30 10:36:22
+=case          frontier_SUITE:init_per_suite
+=logfile       frontier_suite.init_per_suite.html
+=started       2016-09-30 10:36:22
+=ended         2016-09-30 10:36:22
+=result        ok
+=elapsed       1.0e-6
+=case          frontier_SUITE:push_url
+=logfile       frontier_suite.push_url.html
+=started       2016-09-30 10:36:22
+=ended         2016-09-30 10:36:22
+=result        ok
+=elapsed       0.023945
+=case          frontier_SUITE:pull_url
+=logfile       frontier_suite.pull_url.html
+=started       2016-09-30 10:36:22
+=ended         2016-09-30 10:36:22
+=result        failed: {{badmatch,
+                            {url,"http://blog.gregormeyenberg.de",false,
+                                false}},
+                        [{frontier_SUITE,pull_url,1,
+                             [{file,"test/frontier_SUITE.erl"},{line,38}]},
+                         {test_server,ts_tc,3,
+                             [{file,"test_server.erl"},{line,1408}]},
+                         {test_server,run_test_case_eval1,6,
+                             [{file,"test_server.erl"},{line,984}]},
+                         {test_server,run_test_case_eval,9,
+                             [{file,"test_server.erl"},{line,926}]}]}, [{frontier_SUITE,
+                                                                         pull_url,
+                                                                         38},
+                                                                        {test_server,
+                                                                         ts_tc,
+                                                                         1408},
+                                                                        {test_server,
+                                                                         run_test_case_eval1,
+                                                                         984},
+                                                                        {test_server,
+                                                                         run_test_case_eval,
+                                                                         926}]
+=== *** FAILED test case 2 of 2 ***
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=started       2016-09-30 10:36:22
+=ended         2016-09-30 10:36:22
+=result        ok
+=elapsed       1.0e-6
+=group_time    0.138s
+=== TEST COMPLETE, 1 ok, 1 failed of 2 test cases
+
+=finished      2016-09-30 10:36:22
+=failed        1
+=successful    1
+=user_skipped  0
+=auto_skipped  0
