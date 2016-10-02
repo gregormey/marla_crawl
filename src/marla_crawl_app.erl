@@ -8,6 +8,7 @@ start(_Type, _Args) ->
 	ok=init_schema(),
 	ensure_started(mnesia),
 	ensure_started(inets),
+	downloader_repository:init(),
 	marla_crawl_sup:start_link().
 
 stop(_State) ->

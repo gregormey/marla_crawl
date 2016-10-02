@@ -18,7 +18,8 @@
 -behaviour(gen_server).
 
 %% API.
--export([start_link/0]).
+-export([start_link/1]).
+-export([download/1]).
 
 %% gen_server.
 -export([init/1]).
@@ -37,9 +38,14 @@
 
 %% API.
 
--spec start_link() -> {ok, pid()}.
-start_link() ->
-	gen_server:start_link(?MODULE, [], []).
+-spec start_link(fun(()->string()|no_url_in_queue)) -> {ok, pid()}.
+start_link(Pull_url) ->
+	gen_server:start_link(?MODULE, [Pull_url], []).
+
+%% @doc triggers a download of the current URL state
+-spec download(pid())->ok.
+download(Pid)->
+	gen_server:cast(Pid,{download}).
 
 %%===================================================================
 %% gen_server callbacks
@@ -48,15 +54,19 @@ start_link() ->
 %% @private
 %% @doc
 %% Initializes the server
-init([]) ->
-	case frontier:pull_url() of
+init([Pull_url]) ->
+	case Pull_url() of
 		no_url_in_queue -> {stop,normal}; 
-		Url ->  ok=download(Url),
-			{ok,#state{url=Url}}
+		Url ->  {ok,#state{url=Url}}
 	end.
 
 handle_call(_Request, _From, State) ->
 	{reply, ignored, State}.
+
+handle_cast({download},State)->
+	{Header,Body}=downloader_http_client:get(State#state.url),
+	ok=downloader_repository:add_file(State#state.url,Header,Body),
+	{stop,normal,State};
 
 handle_cast(_Msg, State) ->
 	{noreply, State}.
@@ -75,8 +85,3 @@ code_change(_OldVsn, State, _Extra) ->
 %%%%%===================================================================
 %%
 
-%% @doc downloads the content with a URL
--spec download(string())-> ok.
-download(Url)->
-	{Header,Body}=downloader_http_client:get(Url),
-	ok=downloader_repository:add_file(Url,Header,Body).
