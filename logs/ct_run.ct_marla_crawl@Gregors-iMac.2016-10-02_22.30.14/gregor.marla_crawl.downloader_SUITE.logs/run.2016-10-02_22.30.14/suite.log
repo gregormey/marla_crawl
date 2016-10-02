@@ -1,0 +1,36 @@
+=== Suite started at 2016-10-02 22:30:14
+=== Starting test, 1 test cases
+=cases         1
+=user          gregor
+=host          Gregors-iMac
+=hosts         Gregors-iMac 
+=emulator_vsn  7.2.1
+=emulator      beam
+=otp_release   18
+=started       2016-10-02 22:30:14
+=case          downloader_SUITE:init_per_suite
+=logfile       downloader_suite.init_per_suite.html
+=started       2016-10-02 22:30:14
+=ended         2016-10-02 22:30:14
+=result        ok
+=elapsed       1.0e-6
+=case          downloader_SUITE:download
+=logfile       downloader_suite.download.html
+=started       2016-10-02 22:30:14
+=ended         2016-10-02 22:30:19
+=result        ok
+=elapsed       5.023436
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=started       2016-10-02 22:30:19
+=ended         2016-10-02 22:30:19
+=result        ok
+=elapsed       2.0e-6
+=group_time    5.096s
+=== TEST COMPLETE, 1 ok, 0 failed of 1 test cases
+
+=finished      2016-10-02 22:30:19
+=failed        0
+=successful    1
+=user_skipped  0
+=auto_skipped  0

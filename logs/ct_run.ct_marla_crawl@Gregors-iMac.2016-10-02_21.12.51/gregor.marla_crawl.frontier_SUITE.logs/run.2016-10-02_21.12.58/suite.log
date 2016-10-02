@@ -1,0 +1,42 @@
+=== Suite started at 2016-10-02 21:12:58
+=== Starting test, 2 test cases
+=cases         2
+=user          gregor
+=host          Gregors-iMac
+=hosts         Gregors-iMac 
+=emulator_vsn  7.2.1
+=emulator      beam
+=otp_release   18
+=started       2016-10-02 21:12:58
+=case          frontier_SUITE:init_per_suite
+=logfile       frontier_suite.init_per_suite.html
+=started       2016-10-02 21:12:58
+=ended         2016-10-02 21:12:58
+=result        ok
+=elapsed       1.0e-6
+=case          frontier_SUITE:push_url
+=logfile       frontier_suite.push_url.html
+=started       2016-10-02 21:12:58
+=ended         2016-10-02 21:12:58
+=result        ok
+=elapsed       0.001793
+=case          frontier_SUITE:pull_url
+=logfile       frontier_suite.pull_url.html
+=started       2016-10-02 21:12:58
+=ended         2016-10-02 21:12:58
+=result        ok
+=elapsed       6.11e-4
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=started       2016-10-02 21:12:58
+=ended         2016-10-02 21:12:58
+=result        ok
+=elapsed       1.0e-6
+=group_time    0.101s
+=== TEST COMPLETE, 2 ok, 0 failed of 2 test cases
+
+=finished      2016-10-02 21:12:58
+=failed        0
+=successful    2
+=user_skipped  0
+=auto_skipped  0

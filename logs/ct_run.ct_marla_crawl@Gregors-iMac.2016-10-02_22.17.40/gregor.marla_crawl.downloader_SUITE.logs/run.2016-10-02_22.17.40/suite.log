@@ -1,0 +1,56 @@
+=== Suite started at 2016-10-02 22:17:40
+=== Starting test, 2 test cases
+=cases         2
+=user          gregor
+=host          Gregors-iMac
+=hosts         Gregors-iMac 
+=emulator_vsn  7.2.1
+=emulator      beam
+=otp_release   18
+=started       2016-10-02 22:17:40
+=case          downloader_SUITE:init_per_suite
+=logfile       downloader_suite.init_per_suite.html
+=started       2016-10-02 22:17:40
+=ended         2016-10-02 22:17:40
+=result        ok
+=elapsed       2.0e-6
+=case          downloader_SUITE:download
+=logfile       downloader_suite.download.html
+=started       2016-10-02 22:17:40
+=ended         2016-10-02 22:17:40
+=result        failed: {normal,{gen_server,call,[<0.173.0>,{download}]}}, [{gen_server,
+                                                                            call,
+                                                                            204},
+                                                                           {downloader_SUITE,
+                                                                            download,
+                                                                            30},
+                                                                           {test_server,
+                                                                            ts_tc,
+                                                                            1408},
+                                                                           {test_server,
+                                                                            run_test_case_eval1,
+                                                                            984},
+                                                                           {test_server,
+                                                                            run_test_case_eval,
+                                                                            926}]
+=== *** FAILED test case 1 of 2 ***
+=case          downloader_SUITE:fetch_content
+=logfile       downloader_suite.fetch_content.html
+=started       2016-10-02 22:17:40
+=ended         2016-10-02 22:17:45
+=result        ok
+=elapsed       5.018534
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=started       2016-10-02 22:17:45
+=ended         2016-10-02 22:17:46
+=result        ok
+=elapsed       1.0e-6
+=group_time    5.302s
+=== TEST COMPLETE, 1 ok, 1 failed of 2 test cases
+
+=finished      2016-10-02 22:17:46
+=failed        1
+=successful    1
+=user_skipped  0
+=auto_skipped  0

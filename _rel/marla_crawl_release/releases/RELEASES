@@ -1,0 +1,8 @@
+[{release,"marla_crawl_release","1","7.2.1",
+          [{stdlib,"2.7","./lib/stdlib-2.7"},
+           {kernel,"4.1.1","./lib/kernel-4.1.1"},
+           {mnesia_utile,"0.0.1","./lib/mnesia_utile-0.0.1"},
+           {inets,"6.1","./lib/inets-6.1"},
+           {mnesia,"4.13.2","./lib/mnesia-4.13.2"},
+           {marla_crawl,"0.0.1","./lib/marla_crawl-0.0.1"}],
+          permanent}].
