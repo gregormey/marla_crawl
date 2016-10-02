@@ -23,13 +23,20 @@ all()->[download,fetch_content].
 
 init_per_suite(_Config) ->
 	{ok,Pid}=downloader:start_link(fun()-> "http://blog.gregormeyenberg.de" end),
-	[Pid].
+	erlang:display(Pid),
+	[{pid,Pid}].
 
-download([Pid])->
+download(Config)->
 	doc("triggers a download"),
+	Pid=get_pid_from_config(Config),
 	ok=downloader:download(Pid).
 
-fetch_content([_Pid])->
+fetch_content(_Config)->
 	doc("checks if downloaded content is available"),
 	Body=downloader_repository:get_web_content_body("http://blog.gregormeyenber.de"),
-	Body=/=not_found.	
+	true=(not_found=/=Body).
+
+%%% internal
+get_pid_from_config(Config)->
+	{pid,Pid}=lists:last(Config),
+	Pid.

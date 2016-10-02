@@ -16,11 +16,11 @@
 -module(downloader_http_client).
 
 %% API
--export([get/1]).
+-export([get_request/1]).
 
 %% @doc makes a get request and returns content + headers of a given URL 
--spec get(string())-> {ok,tuple(),tuple()}|{error,tuple}.
-get(Url)->
+-spec get_request(string())-> {ok,tuple(),tuple()}|{error,tuple}.
+get_request(Url)->
 	case httpc:request(Url) of
 		{{_Version, 200, _ReasonPhrase},Headers, Body}->{ok,Headers,Body};
 		BadRequest->{error,BadRequest}

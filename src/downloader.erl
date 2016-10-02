@@ -64,7 +64,7 @@ handle_call(_Request, _From, State) ->
 	{reply, ignored, State}.
 
 handle_cast({download},State)->
-	{Header,Body}=downloader_http_client:get(State#state.url),
+	{Header,Body}=downloader_http_client:get_request(State#state.url),
 	ok=downloader_repository:add_file(State#state.url,Header,Body),
 	{stop,normal,State};
 
