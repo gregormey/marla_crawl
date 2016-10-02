@@ -5,14 +5,14 @@
 -export([init/1]).
 
 %% Helper macro for declaring children of supervisor
--define(CHILD(I, Type), {I, {I, start_link, []}, permanent, 5000, Type, [I]}).
+-define(CHILD(I, Type, Args), {I, {I, start_link, Args}, permanent, 5000, Type, [I]}).
 
 
 start_link() ->
 	supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
 init([]) ->
-	Frontier = ?CHILD(frontier, worker),
+	Frontier = ?CHILD(frontier, worker,[]),
 	Children = [Frontier],
 	RestartStrategy = {one_for_one, 10, 60},
 	{ok, {RestartStrategy, Children}}.
