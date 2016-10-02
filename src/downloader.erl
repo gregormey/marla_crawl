@@ -19,7 +19,6 @@
 
 %% API.
 -export([start_link/0]).
--export([start_download])
 
 %% gen_server.
 -export([init/1]).
@@ -52,7 +51,7 @@ start_link() ->
 init([]) ->
 	case frontier:pull_url() of
 		no_url_in_queue -> {stop,normal}; 
-		Url ->  download(Url),
+		Url ->  ok=download(Url),
 			{ok,#state{url=Url}}
 	end.
 
@@ -77,4 +76,7 @@ code_change(_OldVsn, State, _Extra) ->
 %%
 
 %% @doc downloads the content with a URL
- 
+-spec download(string())-> ok.
+download(Url)->
+	{Header,Body}=downloader_http_client:get(Url),
+	ok=downloader_repository:add_file(Url,Header,Body).
