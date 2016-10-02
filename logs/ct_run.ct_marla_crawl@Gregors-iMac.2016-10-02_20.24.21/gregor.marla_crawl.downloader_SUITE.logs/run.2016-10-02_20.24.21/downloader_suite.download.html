@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Test downloader_SUITE:download result</title>
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../../ct_default.css" type="text/css">
+<script type="text/javascript" src="../../jquery-latest.js"></script>
+<script type="text/javascript" src="../../jquery.tablesorter.min.js"></script>
+</head>
+<body>
+
+<a name="top"></a><pre>
+=== Test case: <a href="downloader_suite.src.html#download-1">downloader_SUITE:download/1</a> (click for source code)
+
+=== Config value:
+
+    [{tc_logfile,"/Users/gregor/marla_crawl/logs/ct_run.ct_marla_crawl@Gregors-iMac.2016-10-02_20.24.21/gregor.marla_crawl.downloader_SUITE.logs/run.2016-10-02_20.24.21/downloader_suite.download.html"},
+     {data_dir,"/Users/gregor/marla_crawl/test/downloader_SUITE_data/"},
+     {priv_dir,"/Users/gregor/marla_crawl/logs/ct_run.ct_marla_crawl@Gregors-iMac.2016-10-02_20.24.21/gregor.marla_crawl.downloader_SUITE.logs/run.2016-10-02_20.24.21/log_private/"},
+     {pid,<0.134.0>}]
+
+=== Current directory is "/Users/gregor/marla_crawl/logs/ct_run.ct_marla_crawl@Gregors-iMac.2016-10-02_20.24.21"
+
+=== Started at 2016-10-02 20:24:21
+
+<br />
+
+<div class="default"><b>*** User 2016-10-02 20:24:21.722 ***</b>
+triggers a download
+</div>
+
+<div class="ct_error_notify"><b>*** CT Error Notification 2016-10-02 20:24:21.722 ***</b>
+downloader_SUITE:get_pid_from_config failed on line 41
+Reason: {badmatch,{pid,<0.134.0>}}
+
+<a href="#end">Full error description and stacktrace</a>
+</div>
+<a name="end"></a>
+
+
+=== Ended at 2016-10-02 20:24:21
+=== Location: [{downloader_SUITE,get_pid_from_config,<a href="downloader_suite.src.html#41">41</a>},
+              {downloader_SUITE,download,<a href="downloader_suite.src.html#31">31</a>},
+              {test_server,ts_tc,1408},
+              {test_server,run_test_case_eval1,984},
+              {test_server,run_test_case_eval,926}]
+=== Reason: no match of right hand side value {pid,<0.134.0>}
+  in function  downloader_SUITE:get_pid_from_config/1 (test/downloader_SUITE.erl, line 41)
+  in call from downloader_SUITE:download/1 (test/downloader_SUITE.erl, line 31)
+  in call from test_server:ts_tc/3 (test_server.erl, line 1408)
+  in call from test_server:run_test_case_eval1/6 (test_server.erl, line 984)
+  in call from test_server:run_test_case_eval/9 (test_server.erl, line 926)
+</pre>
+<center>
+<br /><hr /><p>
+<a href="../../../all_runs.html">Test run history
+</a>  |  <a href="../../../index.html">Top level test index
+</a>
+</p>
+<div class="copyright">Copyright &copy; 2016 <a href="http://www.erlang.org">Open Telecom Platform</a><br />
+Updated: <!date>Sun Oct 02 2016 20:24:21<!/date><br />
+</div>
+</center>
+</body>
+</html>

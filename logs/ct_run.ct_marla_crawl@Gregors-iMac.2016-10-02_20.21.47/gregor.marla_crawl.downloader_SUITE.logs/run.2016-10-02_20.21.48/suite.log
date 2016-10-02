@@ -1,0 +1,88 @@
+=== Suite started at 2016-10-02 20:21:48
+=== Starting test, 2 test cases
+=cases         2
+=user          gregor
+=host          Gregors-iMac
+=hosts         Gregors-iMac 
+=emulator_vsn  7.2.1
+=emulator      beam
+=otp_release   18
+=started       2016-10-02 20:21:48
+=case          downloader_SUITE:init_per_suite
+=logfile       downloader_suite.init_per_suite.html
+=started       2016-10-02 20:21:48
+=ended         2016-10-02 20:21:48
+=result        ok
+=elapsed       9.35e-4
+=case          downloader_SUITE:download
+=logfile       downloader_suite.download.html
+=started       2016-10-02 20:21:48
+=ended         2016-10-02 20:21:48
+=result        failed: {{badmatch,
+                            [{watchdog,<0.137.0>},
+                             {tc_logfile,
+                                 "/Users/gregor/marla_crawl/logs/ct_run.ct_marla_crawl@Gregors-iMac.2016-10-02_20.21.47/gregor.marla_crawl.downloader_SUITE.logs/run.2016-10-02_20.21.48/downloader_suite.download.html"},
+                             {data_dir,
+                                 "/Users/gregor/marla_crawl/test/downloader_SUITE_data/"},
+                             {priv_dir,
+                                 "/Users/gregor/marla_crawl/logs/ct_run.ct_marla_crawl@Gregors-iMac.2016-10-02_20.21.47/gregor.marla_crawl.downloader_SUITE.logs/run.2016-10-02_20.21.48/log_private/"},
+                             {pid,<0.134.0>}]},
+                        [{downloader_SUITE,download,1,
+                             [{file,"test/downloader_SUITE.erl"},{line,31}]},
+                         {test_server,ts_tc,3,
+                             [{file,"test_server.erl"},{line,1408}]},
+                         {test_server,run_test_case_eval1,6,
+                             [{file,"test_server.erl"},{line,984}]},
+                         {test_server,run_test_case_eval,9,
+                             [{file,"test_server.erl"},{line,926}]}]}, [{downloader_SUITE,
+                                                                         download,
+                                                                         31},
+                                                                        {test_server,
+                                                                         ts_tc,
+                                                                         1408},
+                                                                        {test_server,
+                                                                         run_test_case_eval1,
+                                                                         984},
+                                                                        {test_server,
+                                                                         run_test_case_eval,
+                                                                         926}]
+=== *** FAILED test case 1 of 2 ***
+=case          downloader_SUITE:fetch_content
+=logfile       downloader_suite.fetch_content.html
+=started       2016-10-02 20:21:48
+=ended         2016-10-02 20:21:48
+=result        failed: {{badmatch,false},
+                        [{downloader_SUITE,fetch_content,1,
+                             [{file,"test/downloader_SUITE.erl"},{line,37}]},
+                         {test_server,ts_tc,3,
+                             [{file,"test_server.erl"},{line,1408}]},
+                         {test_server,run_test_case_eval1,6,
+                             [{file,"test_server.erl"},{line,984}]},
+                         {test_server,run_test_case_eval,9,
+                             [{file,"test_server.erl"},{line,926}]}]}, [{downloader_SUITE,
+                                                                         fetch_content,
+                                                                         37},
+                                                                        {test_server,
+                                                                         ts_tc,
+                                                                         1408},
+                                                                        {test_server,
+                                                                         run_test_case_eval1,
+                                                                         984},
+                                                                        {test_server,
+                                                                         run_test_case_eval,
+                                                                         926}]
+=== *** FAILED test case 2 of 2 ***
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=started       2016-10-02 20:21:48
+=ended         2016-10-02 20:21:48
+=result        ok
+=elapsed       1.0e-6
+=group_time    0.119s
+=== TEST COMPLETE, 0 ok, 2 failed of 2 test cases
+
+=finished      2016-10-02 20:21:48
+=failed        2
+=successful    0
+=user_skipped  0
+=auto_skipped  0
