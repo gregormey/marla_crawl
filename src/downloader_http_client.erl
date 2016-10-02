@@ -19,18 +19,19 @@
 -export([get_request/1]).
 
 %% @doc makes a get request and returns content + headers of a given URL 
--spec get_request(string())-> {ok,tuple(),tuple()}|{error,tuple}.
+-spec get_request(string())-> {ok,tuple(),string()}|{error,tuple()}.
 get_request(Url)->
 	case httpc:request(Url) of
-		{{_Version, 200, _ReasonPhrase},Headers, Body}->{ok,Headers,Body};
+		{ok, {{_Version, 200, _ReasonPhrase}, Headers, Body}}->{ok,Headers,Body};
 		BadRequest->{error,BadRequest}
 	end.
 
 -ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
-get_test()->
-	{ok,_,_}=get("http://www.google.de"),
-	{error,_,_}=get("dwdwdwewd"),
+get_request_test()->
+	inets:start(),
+	{ok,_,_}=get_request("http://www.google.de"),
+	{error,_}=get_request("dwdwdwewd"),
 	ok.
 -endif.
 

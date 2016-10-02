@@ -51,7 +51,7 @@ add_web_content(Url,Header,Body)->
 %% @doc retruns downloaded web content by a given url if content exists
 -spec get_web_content_body(string())->string()|not_found.
 get_web_content_body(Url)->
-	 case mnesia_utile:find_by_id(url,Url) of
+	 case mnesia_utile:find_by_id(web_content,Url) of
 	 	not_found -> not_found;
 		Web_content -> Web_content#web_content.body
 	 end.

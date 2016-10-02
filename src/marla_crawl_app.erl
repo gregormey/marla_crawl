@@ -31,6 +31,7 @@ ensure_started(App) ->
 %%
 -spec init_schema() -> ok.
 init_schema()->
-	case mnesia:create_schema([node()]) of
-		_ -> ok
-	end.
+	mnesia:stop(),
+	ok=mnesia:delete_schema([node()]),
+	ok=mnesia:create_schema([node()]),
+	ok.	
