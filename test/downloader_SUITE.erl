@@ -25,13 +25,10 @@ init_per_suite(_Config) ->
 	[].
 
 download(_Config)->
-	doc("triggers a download and checks if conten is available after 5 secounds"),
+	doc("triggers a download and checks if content is available after 5 secounds"),
 	{ok,Pid}=downloader:start_link(fun()-> "http://blog.gregormeyenberg.de" end),
 	ok=downloader:download(Pid),
 	timer:sleep(timer:seconds(5)),
 	Body=downloader_repository:get_web_content_body("http://blog.gregormeyenberg.de"),
 	true=(not_found=/=Body).
 
-get_pid_from_config(Config)->
-	{pid,Pid}=lists:last(Config),
-	Pid.
